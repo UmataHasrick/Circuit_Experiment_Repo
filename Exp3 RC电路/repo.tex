@@ -1,0 +1,179 @@
+\documentclass[lang=cn,11pt]{elegantpaper}
+
+\usepackage{mathrsfs}
+
+\usepackage{slashed}
+
+\title{RC电路的频率特性}
+\author{PB18020556 戴佳乐 PB19000132 苗立扬}
+
+
+
+% 不需要版本信息，直接注释即可
+%\version{0.07}
+% 不需要时间信息的话，需要把 \today 删除。
+\date{}
+
+
+% 如果想修改参考文献样式，请把这行注释掉
+%\usepackage[authoryear]{gbt7714}  % 国标
+
+\begin{document}
+
+\maketitle
+
+\section{实验目的}
+1. 熟悉正弦稳态分析中的相量的基本概念。
+
+2. 正确使用双踪示波器测量正弦信号的峰一峰值 Up-p，频率 $\mathrm{f}(\mathrm{T})$ 和相位差 $\varphi$，观察李沙育图形；学会 使用晶体管毫伏表测量正弦信号有效值。
+
+3. 用 RC、RL 设计输出滞后(超前)输入的简单电路，并作实际测量。
+
+\section{实验仪器}
+1. DF1641D 型或 EE1641D 型函数发生器 1 台
+
+2. 双踪示波器 1 台
+
+3. 晶体管亳幅表 DF2173B 1 台
+
+4. 可变电容箱 1 个
+
+5. 可变电阻箱 1 个
+
+6. 可变电感箱 1 个
+
+\section{实验原理}
+1. 正弦交流电作用于任一线性定常电路, 产生的响应仍是同频率的正弦量，因此，正弦量可以用相量来表示。设一正弦电流:
+$$
+\begin{aligned}
+&i(t)=\sqrt{2} I \operatorname{COS}\left(\omega t+\varphi_{i}\right)=R_{e}\left[\sqrt{2} I e^{j \varphi_{i}+j \omega t}\right] \\
+&R_{e}\left[\sqrt{2} \dot{I} e^{j \omega t}\right] \leftrightarrow \dot{I}=I e^{j \varphi_{i}}
+\end{aligned}
+$$
+
+2. 用相量表示了正弦量，正弦交流稳态响应的计算可方便地运用相量进行复数运算，在直流电路中的基本定律、定理和计算方法完全适用于相量计算。
+
+3. 输出电压滞后输入电压的 RC 电路，如图 1 所示。
+
+输出电压 $\dot{U}_{0}=\frac{1 / j \omega C}{R+1 / j \omega C} \dot{U}_{i}=\frac{\dot{U}_{i}}{j \omega C R+1}$
+
+网络函数为:
+$$
+H(j \omega)=\frac{\dot{U}_{0}}{\dot{U}_{i}}=\frac{1}{\sqrt{1+(\omega R C)^{2}}} \angle-\operatorname{tg}^{-1}(\omega R C)=|H(j \omega)| \angle \varphi(\omega)
+$$
+
+式中，$|H(j \omega)| \triangleq\left|\frac{\dot{U}_{o}}{\dot{U}_{i}}\right|=\frac{1}{\sqrt{1+(\omega R C)^{2}}}$，称为幅频特性，显然是低通。 $\varphi(\omega)=-t g^{-1}(\omega R C)$，称为相频特性，显然是输出滞后输入 $t g^{-1}(\omega R C)$ 。
+
+4. 输出超前输入电压的 RC 电路如图 2 所示。 输出电压为:
+$$
+\dot{U}_{0}=\frac{R}{R+1 / j \omega c} \dot{U}_{i}=\frac{j \omega C R}{j \omega C R+1} \dot{U}_{i}
+$$
+网络函数为:
+$$
+H(j \omega)=\frac{\dot{U}_{0}}{\dot{U}_{i}}=\frac{\omega R C}{\sqrt{1+(\omega R C)^{2}}} \angle \frac{\pi}{2}-\operatorname{tg}^{-1}(\omega R C)=|H(j \omega)| \angle \varphi(\omega)
+$$
+式中，$|H(j \omega)| \triangleq\left|\frac{\dot{U}_{o}}{\dot{U}_{I}}\right|=\frac{\omega R C}{\sqrt{1+(\omega R C)^{2}}}$，称为幅频特性，显然是高通。 $\varphi(\omega)=\frac{\pi}{2}-\operatorname{tg}^{-1}(\omega R C)$，
+称为相频特性，显然输出超前输入 $\frac{\pi}{2}-t g^{-1}(\omega R C)$ 。
+
+5. $\mathrm{RC}$ 串并联选频电路
+图 3 为 $\mathrm{RC}$ 串并联选频电路。
+
+\section{实验内容及接线图}
+1. $\mathrm{RC}$ 低通电路
+按图 1 接线, 取 $R=2.2 k \Omega, C=0.1 \mu F, U_{i}=1 V$ (有效值)。测量输出电压，并读取输出电压 $U_{0}=0.707 \mathrm{~V}$ 时的信号频率 $f_{c}$， 用李沙育法测量相位差角，数据记入原始数据部分的表格中。
+
+2. RC 高通电路
+按图 2 接线。取 $R=2.2 k \Omega, C=0.1 \mu F, U_{i}=1 V$ (有效值)。测量输出电压 $U_{0}$，并读取 $U_{0}=0.707 V$
+时的信号频率 $f_{c}$, 用李沙育法测量相位差角，数据记入原始数据部分的表格中。
+
+3. RC 串并联选频电路
+按图 2 接线。取 $R=2.2 k \Omega, C=0.1 \mu F, U_{i}=1 V$ (有效值)。测量输出电压 $U_{0}$, 并读取 $U_{0}=0.707 V$ 时的信号频率 $f_{c}$，用李沙育法测量相位差角，数据记入原始数据部分的表格中。
+
+\section{实验数据及处理}
+
+\section{实验讨论}
+1. 测量一组数据时，不要更换测量工具。即同组数据用同种测量仪器测量。
+
+2. 实验测量过程中，对于不同的频率，应保持信号发生器的输出电压恒定不变。
+
+3. 实验中所观察到的椭圆形的李沙育图形，可以通过运算计算出其数学方程，同时证明观察到的图形的正确性。具体计算过程详见 “回答思考题”部分的第二题的证明过程。
+
+\section{思考题}
+1. 两个不同频率的正弦量, 能否测量其相位差？为什么？
+
+答: 不同频率的波，测量其相位差是没有意义的。因为其相位差是含时的，即相位差是随时间变化的，不具有稳定值，所以测量相位差是没有意义的。
+
+2. 据你所知，测量频率、振幅和相位差有哪些方法？
+
+答:
+
+测量频率: (1) 用示波器直接测量。(2) 用频率计测量。
+
+测量振幅：(1）用示波器直接测量。(2）用表测量出有效值, 然后计算振幅。
+
+测量相位差：(1) 用示波器, 通过李沙育图形, 计算相位差。(2)
+
+3. 理论证明公式 $\varphi=\sin ^{-1} \frac{B}{A}$ 成立。
+
+答:
+
+设 $C H 1$ 和 $C H 2$ 的正弦波的方程为:
+$$
+\left\{\begin{array}{l}
+x=C \sin (w t+a) \\
+y=D \sin (w t+b)
+\end{array}\right.
+$$
+整理如下:
+$$
+\left(\begin{array}{cc}
+\cos a & \sin a \\
+\cos b & \sin b
+\end{array}\right)\left(\begin{array}{c}
+\sin w t \\
+\cos w t
+\end{array}\right)=\left(\begin{array}{l}
+x / C \\
+y / D
+\end{array}\right)
+$$
+由线性代数中的 Clamer 法则, 解出:
+$$
+\left\{\begin{array}{l}
+\cos w t=\frac{D x \cos b-C y \cos a}{C D \sin (a-b)} \\
+\sin w t=-\frac{D x \sin b-C y \sin a}{C D \sin (a-b)}
+\end{array}\right.
+$$
+由此可得椭圆方程:
+$$
+(D x \cos b-C y \cos a)^{2}+(D x \sin b-C y \sin a)^{2}=C^{2} D^{2} \sin ^{2}(a-b)
+$$
+此方程, 表示的是一个非标准的椭圆, 这与实验中观察的结果相吻合。 测量值 $A$ 的两个端点, 是 $C H 1$ 的正弦波的振幅最大的时候的两点:
+$$
+A_{1}(0,-C), \quad A_{2}(0, C)
+$$
+由此可计算得 $A$ 值为:
+$$
+A=2 C
+$$
+测量值 $B$ 的两个端点, 是 $C H 2$ 的正弦波的振幅最小的时候的两点：
+$$
+B_{1}(0, C \sin (a-b)), \quad B_{2}(0, C \sin (b-a))
+$$
+由此可计算得 $B$ 值为:
+$$
+B=2 C|\sin (a-b)|
+$$
+由此 $A$ 和 $B$ 值可得:
+$$
+\begin{gathered}
+B / A=\sin (a-b) \\
+\Rightarrow \varphi=a-b=\sin ^{-1} \frac{B}{A}
+\end{gathered}
+$$
+证毕
+
+4. 根据实验结果说明选频电路的作用?
+
+答: 有实验结果可知 $R C$ 低通电路的选频作用是低频可被通过, 高频部分不如低频部分易于通过。 $R C$ 高通电路的选频作用是高频可被通过, 低频部分不如高频部分易于通过。 $R C$ 串并联选频电路只能使有限 部分的频段通过, 带宽与所使用的原件有关, 而高频和低频部分不能通过。
+\end{document}
